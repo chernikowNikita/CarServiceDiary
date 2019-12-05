@@ -1,5 +1,5 @@
 //
-//  Scene.swift
+//  EditOperationVM.swift
 //  CarServiceDiary
 //
 //  Created by Никита Черников on 05/12/2019.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-enum Scene {
-    case operationList(OperationListVM)
-    case editOperation(EditOperationVM)
+struct EditOperationVM {
+  
 }

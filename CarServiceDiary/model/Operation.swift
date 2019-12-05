@@ -25,7 +25,7 @@ class Operation: Object {
 }
 
 extension Operation: IdentifiableType {
-  var identity: Int {
+    var identity: Int {
     get {
       return self.isInvalidated ? 0 : id
     }

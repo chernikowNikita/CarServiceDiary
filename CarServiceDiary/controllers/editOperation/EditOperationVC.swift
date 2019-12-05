@@ -1,14 +1,13 @@
 //
-//  Scene.swift
+//  EditOperationVC.swift
 //  CarServiceDiary
 //
 //  Created by Никита Черников on 05/12/2019.
 //  Copyright © 2019 Никита Черников. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-enum Scene {
-    case operationList(OperationListVM)
-    case editOperation(EditOperationVM)
+class EditOperationVC: UIViewController {
+    
 }

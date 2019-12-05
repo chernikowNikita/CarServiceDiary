@@ -17,6 +17,12 @@
 		468E5FB1239974DE005173DB /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E5FB0239974DE005173DB /* Operation.swift */; };
 		468E5FB32399750D005173DB /* OperationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E5FB22399750D005173DB /* OperationListVC.swift */; };
 		468E5FB5239976DD005173DB /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E5FB4239976DD005173DB /* Scene.swift */; };
+		468E5FB7239994C2005173DB /* EditOperationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E5FB6239994C2005173DB /* EditOperationVM.swift */; };
+		468E5FB9239994E6005173DB /* EditOperationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E5FB8239994E6005173DB /* EditOperationVC.swift */; };
+		468E5FBB2399954B005173DB /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E5FBA2399954B005173DB /* SceneCoordinatorType.swift */; };
+		468E5FBD239995A9005173DB /* Scene+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E5FBC239995A9005173DB /* Scene+ViewController.swift */; };
+		468E5FBF239995D2005173DB /* SceneTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E5FBE239995D2005173DB /* SceneTransitionType.swift */; };
+		468E5FC32399A4C2005173DB /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E5FC22399A4C2005173DB /* SceneCoordinator.swift */; };
 		D49E28D5C4293D2742D76DE2 /* Pods_CarServiceDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E280E16876DA9A6C1FC20EE2 /* Pods_CarServiceDiary.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +40,12 @@
 		468E5FB0239974DE005173DB /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		468E5FB22399750D005173DB /* OperationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationListVC.swift; sourceTree = "<group>"; };
 		468E5FB4239976DD005173DB /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		468E5FB6239994C2005173DB /* EditOperationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOperationVM.swift; sourceTree = "<group>"; };
+		468E5FB8239994E6005173DB /* EditOperationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOperationVC.swift; sourceTree = "<group>"; };
+		468E5FBA2399954B005173DB /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
+		468E5FBC239995A9005173DB /* Scene+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+ViewController.swift"; sourceTree = "<group>"; };
+		468E5FBE239995D2005173DB /* SceneTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionType.swift; sourceTree = "<group>"; };
+		468E5FC22399A4C2005173DB /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		E280E16876DA9A6C1FC20EE2 /* Pods_CarServiceDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarServiceDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1D0A9975EE4DF2963C96B4 /* Pods-CarServiceDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarServiceDiary.release.xcconfig"; path = "Target Support Files/Pods-CarServiceDiary/Pods-CarServiceDiary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +119,10 @@
 			isa = PBXGroup;
 			children = (
 				468E5FB4239976DD005173DB /* Scene.swift */,
+				468E5FBA2399954B005173DB /* SceneCoordinatorType.swift */,
+				468E5FBC239995A9005173DB /* Scene+ViewController.swift */,
+				468E5FBE239995D2005173DB /* SceneTransitionType.swift */,
+				468E5FC22399A4C2005173DB /* SceneCoordinator.swift */,
 			);
 			path = scene;
 			sourceTree = "<group>";
@@ -114,6 +130,8 @@
 		468E5FAB2399747B005173DB /* editOperation */ = {
 			isa = PBXGroup;
 			children = (
+				468E5FB6239994C2005173DB /* EditOperationVM.swift */,
+				468E5FB8239994E6005173DB /* EditOperationVC.swift */,
 			);
 			path = editOperation;
 			sourceTree = "<group>";
@@ -260,11 +278,17 @@
 			files = (
 				468E5FB32399750D005173DB /* OperationListVC.swift in Sources */,
 				468E5FAE239974A3005173DB /* OperationListVM.swift in Sources */,
+				468E5FB7239994C2005173DB /* EditOperationVM.swift in Sources */,
 				468E5F9923997065005173DB /* ViewController.swift in Sources */,
 				468E5F9523997065005173DB /* AppDelegate.swift in Sources */,
+				468E5FB9239994E6005173DB /* EditOperationVC.swift in Sources */,
 				468E5FB5239976DD005173DB /* Scene.swift in Sources */,
+				468E5FBB2399954B005173DB /* SceneCoordinatorType.swift in Sources */,
 				468E5FB1239974DE005173DB /* Operation.swift in Sources */,
 				468E5F9723997065005173DB /* SceneDelegate.swift in Sources */,
+				468E5FBD239995A9005173DB /* Scene+ViewController.swift in Sources */,
+				468E5FBF239995D2005173DB /* SceneTransitionType.swift in Sources */,
+				468E5FC32399A4C2005173DB /* SceneCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

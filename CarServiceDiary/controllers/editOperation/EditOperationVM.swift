@@ -9,5 +9,11 @@
 import Foundation
 
 struct EditOperationVM {
+  let operationService: OperationServiceType
+  let sceneCoordinator: SceneCoordinatorType
   
+  init(operationService: OperationServiceType, coordinator: SceneCoordinatorType) {
+      self.operationService = operationService
+      self.sceneCoordinator = coordinator
+  }
 }

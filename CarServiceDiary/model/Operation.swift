@@ -15,9 +15,8 @@ class Operation: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var desc: String = ""
     @objc dynamic var milagePeriod: Int = 0
+    @objc dynamic var lastCompletedMilage: Int = 0
     let price = RealmOptional<Int>()
-    
-    @objc dynamic var checked: Date? = nil
     
     override class func primaryKey() -> String? {
         return "id"
@@ -26,8 +25,8 @@ class Operation: Object {
 
 extension Operation: IdentifiableType {
     var identity: Int {
-    get {
-      return self.isInvalidated ? 0 : id
+        get {
+            return self.isInvalidated ? 0 : id
+        }
     }
-  }
 }

@@ -9,5 +9,13 @@
 import UIKit
 
 class EditOperationVC: UIViewController {
+    var viewModel: EditOperationVM!
     
 }
+
+extension EditOperationVC: BindableType {
+    func bindViewModel() {
+        
+    }
+}
+

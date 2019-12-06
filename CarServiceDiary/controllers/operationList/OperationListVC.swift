@@ -9,5 +9,12 @@
 import UIKit
 
 class OperationListVC: UIViewController {
+    var viewModel: OperationListVM!
     
+}
+
+extension OperationListVC: BindableType {
+    func bindViewModel() {
+        
+    }
 }

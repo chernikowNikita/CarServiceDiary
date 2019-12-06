@@ -14,5 +14,12 @@ import Action
 typealias OperationSection = AnimatableSectionModel<String, Operation>
 
 struct OperationListVM {
-  
+    
+    let operationService: OperationServiceType
+    let sceneCoordinator: SceneCoordinatorType
+    
+    init(operationService: OperationServiceType, coordinator: SceneCoordinatorType) {
+        self.operationService = operationService
+        self.sceneCoordinator = coordinator
+    }
 }

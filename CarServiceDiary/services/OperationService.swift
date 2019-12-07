@@ -24,16 +24,16 @@ struct OperationService: OperationServiceType {
     }
 
     @discardableResult
-    func createTask(title: String,
+    func createOperation(title: String,
                     desc: String,
                     milagePeriod: Int,
-                    price: Int?) -> Observable<Operation> {
+                    price: Int) -> Observable<Operation> {
         let result = withRealm("creating") { realm -> Observable<Operation> in
             let operation = Operation()
             operation.title = title
             operation.desc = desc
             operation.milagePeriod = milagePeriod
-            operation.price.value = price
+            operation.price = price
             try realm.write {
                 operation.id = (realm.objects(Operation.self).max(ofProperty: "id") ?? 0) + 1
                 realm.add(operation)
@@ -56,23 +56,20 @@ struct OperationService: OperationServiceType {
     
     @discardableResult
     func update(operation: Operation,
-                newTitle: String? = nil,
-                newDesc: String? = nil,
-                newMilagePeriod: Int? = nil,
-                newPrice: Int? = nil) -> Observable<Operation> {
+                editData: EditOperationData) -> Observable<Operation> {
         let result = withRealm("updating title") { realm -> Observable<Operation> in
             try realm.write {
-                if let title = newTitle {
+                if let title = editData.title {
                     operation.title = title
                 }
-                if let desc = newDesc {
+                if let desc = editData.desc {
                     operation.desc = desc
                 }
-                if let milagePeriod = newMilagePeriod {
+                if let milagePeriod = editData.milagePeriod {
                     operation.milagePeriod = milagePeriod
                 }
-                if let price = newPrice {
-                    operation.price.value = price
+                if let price = editData.price {
+                    operation.price = price
                 }
             }
             return .just(operation)
@@ -81,10 +78,10 @@ struct OperationService: OperationServiceType {
     }
     
     @discardableResult
-    func complete(operation: Operation, in milage: Int) -> Observable<Operation> {
-        let result = withRealm("toggling") { realm -> Observable<Operation> in
+    func complete(operation: Operation, carMilage: Int) -> Observable<Operation> {
+        let result = withRealm("complete") { realm -> Observable<Operation> in
             try realm.write {
-                operation.lastCompletedMilage = milage
+                operation.lastCompletedMilage = carMilage
             }
             return .just(operation)
         }

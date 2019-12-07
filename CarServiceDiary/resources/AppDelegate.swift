@@ -10,19 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UIViewController()
-        let service = OperationService()
-        let sceneCoordinator = SceneCoordinator(window: window!)
-
-        let operationListVM = OperationListVM(operationService: service, coordinator: sceneCoordinator)
-        let firstScene = Scene.operationList(operationListVM)
-        sceneCoordinator.transition(to: firstScene, type: .root)
-        return true
-    }
-
+    
 }
 

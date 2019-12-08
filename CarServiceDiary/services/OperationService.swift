@@ -90,6 +90,7 @@ struct OperationService: OperationServiceType {
     
     func operations() -> Observable<Results<Operation>> {
         let result = withRealm("getting operations") { realm -> Observable<Results<Operation>> in
+            let realm = try Realm()
             let operations = realm.objects(Operation.self)
             return Observable.collection(from: operations)
         }

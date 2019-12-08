@@ -23,6 +23,21 @@ struct OperationListVM {
         self.sceneCoordinator = coordinator
     }
     
+    lazy var deleteAction: Action<Operation, Void> = { this in
+        return Action<Operation, Void>() { operation in
+            return this.operationService.delete(operation: operation)
+        }
+    }(self)
+    
+    lazy var editAction: Action<Operation, Swift.Never> = { this in
+      return Action { operation in
+        let editViewModel = EditOperationVM(operation: operation, coordinator: this.sceneCoordinator, updateAction: this.onUpdate(operation: operation))
+        return this.sceneCoordinator
+              .transition(to: Scene.editOperation(editViewModel), type: .push)
+              .asObservable()
+      }
+    }(self)
+    
     var sectionedOperations: Observable<[OperationSection]> {
       get {
         let operationsObservable = operationService.operations()
@@ -43,7 +58,7 @@ struct OperationListVM {
                 let in100Operations = operations
                     .filter { operation in
                         let milageToNext = operation.milageToNextCompletion(carMilage: carMilage)
-                        return milageToNext <= 100
+                        return milageToNext > 0 && milageToNext <= 100
                     }
                     .sorted(by: sortBlock)
                     

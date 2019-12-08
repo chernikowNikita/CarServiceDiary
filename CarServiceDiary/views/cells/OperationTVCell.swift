@@ -83,10 +83,16 @@ class OperationTVCell: UITableViewCell {
     
     // MARK: - Private methods
     private func setupView() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        remainingMilageLabel.translatesAutoresizingMaskIntoConstraints = false
+        completeButton.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(priceLabel)
         self.contentView.addSubview(remainingMilageLabel)
         self.contentView.addSubview(completeButton)
+        
+        completeButton.setTitleColor(.blue, for: .normal)
         
         makeConstraints()
     }

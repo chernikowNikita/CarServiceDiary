@@ -90,7 +90,7 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
 extension SceneCoordinator: UINavigationControllerDelegate {
   
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        currentViewController = SceneCoordinator.actualViewController(for: viewController)
+        currentViewController = viewController
     }
   
 }

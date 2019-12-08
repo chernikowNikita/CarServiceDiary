@@ -32,7 +32,7 @@ class OperationListVC: UIViewController {
         return button
     }()
     
-    private let addOperationBarButton: UIBarButtonItem = {
+    private var addOperationBarButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
         
         return button
@@ -59,7 +59,6 @@ class OperationListVC: UIViewController {
     
     private func makeConstraints() {
         let guide = view.safeAreaLayoutGuide
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: guide.topAnchor),
@@ -70,6 +69,9 @@ class OperationListVC: UIViewController {
     }
     
     private func configureDataSource() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         OperationTVCell.register(in: tableView)
         dataSource = RxTableViewSectionedAnimatedDataSource(
           configureCell: { [weak self] dataSource, tableView, indexPath, item in
@@ -95,6 +97,22 @@ extension OperationListVC: BindableType {
         viewModel.sectionedOperations
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: self.rx.disposeBag)
+        tableView.rx.itemDeleted
+            .map { [unowned self] indexPath in
+                try! self.dataSource.model(at: indexPath) as! Operation
+            }
+            .bind(to: viewModel.deleteAction.inputs)
+            .disposed(by: self.rx.disposeBag)
+        tableView.rx.itemSelected
+            .do(onNext: { [unowned self] indexPath in
+                self.tableView.deselectRow(at: indexPath, animated: false)
+            })
+            .map { [unowned self] indexPath in
+                try! self.dataSource.model(at: indexPath) as! Operation
+            }
+            .bind(to: viewModel.editAction.inputs)
+            .disposed(by: self.rx.disposeBag)
+        addOperationBarButton.rx.action = viewModel.onCreateTask()
     }
     
 }

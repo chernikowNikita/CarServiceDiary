@@ -90,14 +90,33 @@ struct OperationListVM {
                     }
                     .sorted(by: sortBlock)
                 
-                return [
-                    OperationSection(model: "Срочно", items: urgentOperations),
-                    OperationSection(model: "Ближайшие 100 км", items: in100Operations),
-                    OperationSection(model: "Ближайшие 1000 км", items: in1000Operations),
-                    OperationSection(model: "Ближайшие 5000 км", items: in5000Operations),
-                    OperationSection(model: "Ближайшие 10000 км", items: in10000Operations),
-                    OperationSection(model: "Более 10000 км", items: otherOperations)
-                ]
+                var sections: [OperationSection] = []
+                if !urgentOperations.isEmpty {
+                    let section = OperationSection(model: "Срочно", items: urgentOperations)
+                    sections.append(section)
+                }
+                if !in100Operations.isEmpty {
+                    let section = OperationSection(model: "Ближайшие 100 км", items: in100Operations)
+                    sections.append(section)
+                }
+                if !in1000Operations.isEmpty {
+                    let section = OperationSection(model: "Ближайшие 1000 км", items: in1000Operations)
+                    sections.append(section)
+                }
+                if !in5000Operations.isEmpty {
+                    let section = OperationSection(model: "Ближайшие 5000 км", items: in5000Operations)
+                    sections.append(section)
+                }
+                if !in10000Operations.isEmpty {
+                    let section = OperationSection(model: "Ближайшие 10000 км", items: in10000Operations)
+                    sections.append(section)
+                }
+                if !otherOperations.isEmpty {
+                    let section = OperationSection(model: "Более 10000 км", items: otherOperations)
+                    sections.append(section)
+                }
+                
+                return sections
         }
       }
     }

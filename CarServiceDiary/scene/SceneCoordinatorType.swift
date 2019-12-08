@@ -23,6 +23,5 @@ extension SceneCoordinatorType {
     @discardableResult
     func pop() -> Completable {
         return pop(animated: true)
-        
     }
 }

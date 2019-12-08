@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        UINavigationBar.appearance().backgroundColor = UIColor.yellow
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIViewController()
         let service = OperationService()

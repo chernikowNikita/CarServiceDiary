@@ -32,14 +32,14 @@ extension Scene {
     }
     
     fileprivate func createOperationListVC(with viewModel: OperationListVM) -> OperationListVC {
-        let vc = OperationListVC()
-        // TODO: bind viewModel
+        var vc = OperationListVC()
+        vc.bindViewModel(to: viewModel)
         return vc
     }
     
     fileprivate func createEditOperationVC(with viewModel: EditOperationVM) -> EditOperationVC {
-        let vc = EditOperationVC()
-        // TODO: bind viewModel
+        var vc = EditOperationVC()
+        vc.bindViewModel(to: viewModel)
         return vc
     }
     

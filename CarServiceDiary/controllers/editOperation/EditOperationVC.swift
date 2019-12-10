@@ -152,6 +152,9 @@ class EditOperationVC: UIViewController {
 extension EditOperationVC: BindableType {
     func bindViewModel() {
         titleField.text = viewModel.operationTitle
+        descView.text = viewModel.operationDesc
+        milagePeriodField.text = "\(viewModel.operationMilagePeriod)"
+        priceField.text = "\(viewModel.operationPrice)"
         cancelButton.rx.action = viewModel.onCancel
         
         let milagePeriodObservable = milagePeriodField.rx.text.asObservable()

@@ -43,18 +43,20 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
             navigationController.delegate = self
             
             _ = navigationController.rx.delegate
-                .sentMessage(#selector(UINavigationControllerDelegate   .navigationController(_:didShow:animated:)))
+                .sentMessage(#selector(UINavigationControllerDelegate.navigationController(_:didShow:animated:)))
                 .map { _ in }
                 .bind(to: subject)
             navigationController.pushViewController(viewController, animated: true)
 
         case .modal:
+            viewController.modalPresentationStyle = .fullScreen
             currentViewController.present(viewController, animated: true) {
                 subject.onCompleted()
             }
             currentViewController = SceneCoordinator.actualViewController(for: viewController)
         }
         return subject.asObservable()
+            .debug()
             .take(1)
             .ignoreElements()
     }
